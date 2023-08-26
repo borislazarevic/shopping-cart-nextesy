@@ -1,0 +1,8 @@
+@use "fonts" as *;
+@use "base" as *;
+@use "reset" as *;
+
+@mixin load-core($sizes) {
+  @include load-fonts();
+  @include base($sizes);
+}

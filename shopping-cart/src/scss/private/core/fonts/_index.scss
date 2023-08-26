@@ -1,0 +1,5 @@
+@use "proxima-nova-font" as *;
+
+@mixin load-fonts() {
+  @include load-proxima-nova-font("fonts/proxima-nova");
+}

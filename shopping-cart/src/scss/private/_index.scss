@@ -1,0 +1,5 @@
+@use "core" as *;
+
+@mixin load-scss($sizes) {
+  @include load-core($sizes);
+}

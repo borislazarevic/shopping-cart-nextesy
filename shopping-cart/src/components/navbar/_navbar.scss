@@ -1,0 +1,24 @@
+@use "../../scss/public" as *;
+
+@mixin navbar($sizes, $colors) {
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    background-color: map-get($colors, color-primary);
+  }
+
+  // Test media query
+
+  @include extra-small-device {
+    .navbar {
+      background-color: map-get($colors, color-secondary);
+    }
+  }
+
+  @include small-tablets {
+    .navbar {
+      background-color: map-get($colors, color-tertiary);
+      border: map-get($sizes, border-width) solid map-get($colors, color-focus);
+    }
+  }
+}

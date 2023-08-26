@@ -1,0 +1,6 @@
+@use "scss/private" as *;
+@use "scss/public" as *;
+@use "components" as *;
+
+@include load-scss($sizes);
+@include load-components($sizes, $colors);

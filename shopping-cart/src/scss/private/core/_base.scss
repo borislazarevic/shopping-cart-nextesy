@@ -1,0 +1,16 @@
+@mixin base($sizes) {
+  html,
+  body {
+    height: 100%;
+  }
+
+  html {
+    font-size: 62.5%;
+  }
+
+  body {
+    font-size: map-get($sizes, font-size);
+    font-family: map-get($sizes, font-family);
+    overflow-y: hidden;
+  }
+}

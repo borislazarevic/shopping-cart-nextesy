@@ -1,0 +1,5 @@
+@use "navbar/navbar" as *;
+
+@mixin load-components($sizes, $colors) {
+  @include navbar($sizes, $colors);
+}
