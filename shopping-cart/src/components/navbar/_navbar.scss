@@ -4,21 +4,53 @@
   .navbar {
     display: flex;
     justify-content: space-between;
-    background-color: map-get($colors, color-primary);
-  }
+    align-items: center;
+    background: linear-gradient(
+      to right,
+      map-get($colors, color-primary),
+      map-get($colors, color-secondary)
+    );
+    padding: map-get($sizes, padding-x-large) map-get($sizes, padding-xxl-large);
+    color: map-get($colors, color-tertiary);
 
-  // Test media query
+    .navbar-ul {
+      display: flex;
+      align-items: center;
+      gap: map-get($sizes, padding-xxl-large);
 
-  @include extra-small-device {
-    .navbar {
-      background-color: map-get($colors, color-secondary);
-    }
-  }
+      .navbar-link {
+        font-size: map-get($sizes, font-size-large);
+        color: inherit;
+        text-decoration: none;
+        @include base-transition($sizes);
 
-  @include small-tablets {
-    .navbar {
-      background-color: map-get($colors, color-tertiary);
-      border: map-get($sizes, border-width) solid map-get($colors, color-focus);
+        &:hover {
+          opacity: 0.6;
+        }
+
+        &.card {
+          position: relative;
+
+          .cart-item-count-wrapper {
+            position: absolute;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: map-get($colors, color-primary);
+            height: 1.4rem;
+            width: 1.4rem;
+            top: -1.6rem;
+            right: -0.5rem;
+            border-radius: 50%;
+            outline: 0.2rem solid map-get($colors, color-secondary);
+
+            .cart-item-count {
+              font-size: map-get($sizes, cart-item-counter-size);
+              font-weight: map-get($sizes, font-weight-bold);
+            }
+          }
+        }
+      }
     }
   }
 }
