@@ -1,4 +1,4 @@
-@mixin base($sizes) {
+@mixin base($sizes, $colors) {
   html,
   body {
     height: 100%;
@@ -11,6 +11,15 @@
   body {
     font-size: map-get($sizes, font-size);
     font-family: map-get($sizes, font-family);
-    overflow-y: hidden;
+    background-color: map-get($colors, color-page-background);
   }
+
+  .body-container {
+    padding: 7.7rem 24rem;
+  }
+}
+
+img {
+  height: 100%;
+  width: 100%;
 }

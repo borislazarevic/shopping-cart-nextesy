@@ -1,5 +1,15 @@
 @use "navbar/navbar" as *;
+@use "button/button" as *;
+@use "card/card" as *;
+@use "shop-home/shop-home" as *;
+@use "spinner/spinner" as *;
+@use "error/error" as *;
 
 @mixin load-components($sizes, $colors) {
   @include navbar($sizes, $colors);
+  @include button($sizes, $colors);
+  @include card($sizes, $colors);
+  @include shopHome($sizes);
+  @include spinner($colors);
+  @include error($sizes, $colors);
 }

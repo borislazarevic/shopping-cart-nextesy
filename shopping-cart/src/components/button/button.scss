@@ -1,0 +1,21 @@
+@use "../../scss/public" as *;
+
+@mixin button($sizes, $colors) {
+  .button {
+    background-color: map-get($colors, color-secondary);
+    font-size: map-get($sizes, font-size);
+    font-weight: map-get($sizes, font-weight-bold);
+    color: map-get($colors, color-tertiary);
+    border-radius: map-get($sizes, btn-border-radius);
+    width: 100%;
+    cursor: pointer;
+    border: none;
+    padding: map-get($sizes, padding-btn) 0;
+
+    @include base-transition($sizes);
+
+    &:hover {
+      opacity: 0.6;
+    }
+  }
+}

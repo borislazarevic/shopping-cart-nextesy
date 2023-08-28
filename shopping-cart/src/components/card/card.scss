@@ -1,0 +1,40 @@
+@mixin card($sizes, $colors) {
+  .card-container {
+    height: 37.2rem;
+    width: 29.2rem;
+    border-radius: map-get($sizes, border-radius);
+    background-color: map-get($colors, color-tertiary);
+    overflow: hidden;
+
+    .card-image {
+      height: 17.6rem;
+      object-fit: cover;
+      object-position: center;
+    }
+
+    .card-wrapper {
+      padding: map-get($sizes, padding);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      height: 19.6rem;
+
+      .card-title-wrapper {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-bottom: map-get($sizes, padding);
+        font-size: map-get($sizes, font-size-x-large);
+
+        .card-title {
+          font-weight: map-get($sizes, font-weight);
+        }
+
+        .card-price {
+          font-weight: map-get($sizes, font-weight-bold);
+          color: map-get($colors, color-text-secondary);
+        }
+      }
+    }
+  }
+}
