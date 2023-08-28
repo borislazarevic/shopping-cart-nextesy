@@ -2,5 +2,5 @@
 @use "scss/public" as *;
 @use "components" as *;
 
-@include load-scss($sizes);
+@include load-scss($sizes, $colors);
 @include load-components($sizes, $colors);

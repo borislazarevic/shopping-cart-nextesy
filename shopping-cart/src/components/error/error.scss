@@ -1,0 +1,24 @@
+@mixin error($sizes, $colors) {
+  .error-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: map-get($sizes, padding-x-large);
+    text-align: center;
+    border-radius: map-get($sizes, border-radius);
+    background-color: map-get($colors, color-error-background);
+
+    .error-message {
+      font-size: map-get($sizes, font-size-large);
+      font-weight: map-get($sizes, font-weight-bold);
+      padding-bottom: map-get($sizes, padding-medium);
+    }
+
+    .error-status-code {
+      font-size: map-get($sizes, font-size-large);
+      font-weight: map-get($sizes, font-weight-bold);
+      color: map-get($colors, color-text-tertiary);
+    }
+  }
+}

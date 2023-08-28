@@ -19,7 +19,7 @@ export const Navbar = () => {
             </NavLink>
           </li>
           <li>
-            <NavLink className="navbar-link card" to={RoutePath.cart}>
+            <NavLink className="navbar-link cart" to={RoutePath.cart}>
               <iconMap.Cart />
               <div className="cart-item-count-wrapper">
                 <span className="cart-item-count">0</span>

@@ -1,0 +1,7 @@
+@mixin shopHome($sizes) {
+  .shop-home-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(292px, 1fr));
+    gap: 4.2rem;
+  }
+}
