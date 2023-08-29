@@ -36,8 +36,39 @@ const cartSlice = createSlice({
 
       localStorage.setItem("cartItems", JSON.stringify(state.cartItems));
     },
+    removeFromCart: (state, { payload }) => {
+      const filteredCartItems = state.cartItems.filter(
+        (cartItem) => cartItem.id !== payload.id
+      );
+
+      state.cartItems = filteredCartItems;
+
+      localStorage.setItem("cartItems", JSON.stringify(state.cartItems));
+
+      toast.error(`${payload.title} is successfully removed to the cart.`, {
+        position: "bottom-left",
+      });
+    },
+    getCartTotalAmount: (state) => {
+      const { total } = state.cartItems.reduce(
+        (cartTotal, cartItem) => {
+          const { price } = cartItem;
+          const itemTotal = price;
+
+          cartTotal.total += itemTotal;
+
+          return cartTotal;
+        },
+        {
+          total: 0,
+        }
+      );
+
+      state.cartTotalAmount = total;
+    },
   },
 });
 
-export const { addToCart } = cartSlice.actions;
+export const { addToCart, removeFromCart, getCartTotalAmount } =
+  cartSlice.actions;
 export default cartSlice.reducer;
