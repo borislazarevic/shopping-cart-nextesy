@@ -4,8 +4,10 @@ interface CardProps {
   imgSrc: string;
   imgAlt: string;
   title: string;
-  price: string;
+  productId: number;
+  price: number;
   description: string;
+  addToCart: (productId: number) => void;
 }
 
 export const Card = ({
@@ -14,7 +16,13 @@ export const Card = ({
   title,
   price,
   description,
+  productId,
+  addToCart,
 }: CardProps) => {
+  const handleAddToCart = () => {
+    addToCart(productId);
+  };
+
   return (
     <div className="card-container">
       <img className="card-image" src={imgSrc} alt={imgAlt} />
@@ -26,7 +34,7 @@ export const Card = ({
           </div>
           <p className="card-info">{description}</p>
         </div>
-        <Button>Add to cart</Button>
+        <Button onClick={handleAddToCart}>Add to cart</Button>
       </div>
     </div>
   );

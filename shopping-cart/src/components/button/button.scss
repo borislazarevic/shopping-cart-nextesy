@@ -17,5 +17,16 @@
     &:hover {
       opacity: 0.6;
     }
+
+    &.btn-checkout {
+      background-color: map-get($colors, color-primary);
+    }
+
+    &.btn-remove {
+      color: map-get($colors, color-text-tertiary);
+      font-size: map-get($sizes, font-size);
+      font-weight: map-get($sizes, font-weight);
+      background-color: transparent;
+    }
   }
 }

@@ -30,6 +30,8 @@
 
         &.cart {
           position: relative;
+          padding: 0;
+          background-color: transparent;
 
           .cart-item-count-wrapper {
             position: absolute;
@@ -39,7 +41,7 @@
             background-color: map-get($colors, color-primary);
             height: 1.4rem;
             width: 1.4rem;
-            top: -1.6rem;
+            top: -0.6rem;
             right: -0.5rem;
             border-radius: 50%;
             outline: 0.2rem solid map-get($colors, color-secondary);
@@ -48,6 +50,59 @@
               font-size: map-get($sizes, cart-item-counter-size);
               font-weight: map-get($sizes, font-weight-bold);
             }
+          }
+        }
+      }
+
+      .dropdown-menu {
+        position: absolute;
+        top: 7.6rem;
+        right: 5.6rem;
+        background-color: map-get($colors, color-tertiary);
+        border-radius: map-get($sizes, border-radius);
+        padding: map-get($sizes, padding-large) map-get($sizes, padding);
+        width: 24.6rem;
+
+        &.active {
+          opacity: 1;
+          visibility: visible;
+          transform: translateY(0);
+          @include base-transition($sizes);
+        }
+
+        &.inactive {
+          opacity: 0;
+          visibility: hidden;
+          transform: translateY(-0.2rem);
+          @include base-transition($sizes);
+        }
+
+        &::before {
+          content: "";
+          position: absolute;
+          top: -0.2rem;
+          right: 2rem;
+          height: 2rem;
+          width: 2rem;
+          background: map-get($colors, color-tertiary);
+          transform: rotate(45deg);
+        }
+
+        .dropdown-menu-wrapper {
+          display: flex;
+          align-items: center;
+          padding-bottom: map-get($sizes, padding-medium);
+
+          .dropdown-menu-image {
+            height: 3.1rem;
+            width: 5.1rem;
+            border-radius: map-get($sizes, border-radius);
+          }
+
+          .dropdown-menu-title {
+            font-size: map-get($sizes, font-size);
+            color: map-get($colors, color-text-primary);
+            padding-left: 1.3rem;
           }
         }
       }

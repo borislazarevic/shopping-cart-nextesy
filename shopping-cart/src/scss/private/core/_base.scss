@@ -11,6 +11,7 @@
   body {
     font-size: map-get($sizes, font-size);
     font-family: map-get($sizes, font-family);
+    color: map-get($colors, color-text-primary);
     background-color: map-get($colors, color-page-background);
   }
 
