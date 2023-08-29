@@ -5,10 +5,13 @@ import { useSelector } from "react-redux";
 import { Button } from "..";
 import { useNavigate } from "react-router-dom";
 import { useState, useRef, useEffect } from "react";
+import { CartSliceProps, RootState } from "../../redux-toolkit";
 
 export const Navbar = () => {
-  const [isOpen, setIsOpen] = useState<any | null>(null);
-  const cart = useSelector((state) => state.cart);
+  const [isOpen, setIsOpen] = useState<boolean | null>(null);
+  const cart: CartSliceProps = useSelector(
+    (state) => (state as RootState).cart
+  );
   const navigate = useNavigate();
   const dropdownRef = useRef<HTMLInputElement>(null);
 
@@ -22,8 +25,11 @@ export const Navbar = () => {
   };
 
   useEffect(() => {
-    const handleOutsideClick = (e) => {
-      if (dropdownRef.current && !dropdownRef.current.contains(e.target)) {
+    const handleOutsideClick = (e: MouseEvent): void => {
+      if (
+        dropdownRef.current &&
+        !dropdownRef.current.contains(e.target as HTMLButtonElement)
+      ) {
         setIsOpen(false);
       }
     };

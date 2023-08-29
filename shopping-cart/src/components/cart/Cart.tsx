@@ -1,8 +1,27 @@
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { useEffect } from "react";
 import { Button } from "..";
+import {
+  CartSliceProps,
+  RootState,
+  getCartTotalAmount,
+  removeFromCart,
+} from "../../redux-toolkit";
+import { Product } from "../../types";
 
 export const Cart = () => {
-  const cart = useSelector((state) => state.cart);
+  const cart: CartSliceProps = useSelector(
+    (state) => (state as RootState).cart
+  );
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getCartTotalAmount());
+  }, [cart, dispatch]);
+
+  const handleRemoveFromCart = (cartItem: Product) => {
+    dispatch(removeFromCart(cartItem));
+  };
 
   return (
     <div className="cart-container">
@@ -21,7 +40,12 @@ export const Cart = () => {
             </div>
             <div className="cart-items-price-wrapper">
               <p className="cart-items-price">{cartItem.price}$</p>
-              <Button className="btn-remove">Remove</Button>
+              <Button
+                onClick={() => handleRemoveFromCart(cartItem)}
+                className="btn-remove"
+              >
+                Remove
+              </Button>
             </div>
           </div>
           <hr className="horizontal-line" />
@@ -29,7 +53,7 @@ export const Cart = () => {
       ))}
       <div className="cart-total-amount">
         <h3 className="cart-total-amount-title">Total</h3>
-        <p className="cart-total-amount-price">0$</p>
+        <p className="cart-total-amount-price">{cart.cartTotalAmount}$</p>
       </div>
     </div>
   );
