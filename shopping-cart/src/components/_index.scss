@@ -4,6 +4,7 @@
 @use "shop-home/shop-home" as *;
 @use "spinner/spinner" as *;
 @use "error/error" as *;
+@use "cart/cart" as *;
 
 @mixin load-components($sizes, $colors) {
   @include navbar($sizes, $colors);
@@ -12,4 +13,5 @@
   @include shopHome($sizes);
   @include spinner($colors);
   @include error($sizes, $colors);
+  @include cart($sizes, $colors);
 }

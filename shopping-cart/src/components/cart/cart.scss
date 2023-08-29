@@ -1,0 +1,63 @@
+@mixin cart($sizes, $colors) {
+  .cart-container {
+    .cart-container-title {
+      text-align: center;
+      font-size: map-get($sizes, font-size-xl-large);
+      font-weight: map-get($sizes, font-weight);
+      padding-bottom: 6.5rem;
+    }
+
+    .cart-items-wrapper {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      .cart-items-img {
+        height: 6.7rem;
+        width: 10.1rem;
+        border-radius: map-get($sizes, border-radius);
+      }
+
+      .cart-items-title-wrapper {
+        padding-left: 3.8rem;
+        flex: 1;
+
+        .cart-items-title {
+          font-size: map-get($sizes, font-size);
+          font-weight: map-get($sizes, font-weight);
+          padding-bottom: map-get($sizes, padding-medium);
+        }
+      }
+    }
+
+    .cart-items-price-wrapper {
+      .cart-items-price {
+        font-size: map-get($sizes, font-size-x-large);
+        font-weight: map-get($sizes, font-weight-bold);
+        padding-bottom: map-get($sizes, padding-medium);
+        text-align: right;
+      }
+    }
+
+    .cart-total-amount {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      .cart-total-amount-title {
+        font-size: map-get($sizes, font-size-extra-large);
+        font-weight: map-get($sizes, font-weight);
+      }
+
+      .cart-total-amount-price {
+        font-size: map-get($sizes, font-size-extra-large);
+        font-weight: map-get($sizes, font-weight-bold);
+        color: map-get($colors, color-text-secondary);
+      }
+    }
+
+    .horizontal-line {
+      margin: 2.2rem 0;
+    }
+  }
+}
