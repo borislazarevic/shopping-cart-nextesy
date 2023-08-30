@@ -28,10 +28,6 @@
           opacity: 0.6;
         }
 
-        &.shop {
-          display: none;
-        }
-
         &.cart {
           position: relative;
           padding: 0;
@@ -95,7 +91,17 @@
         .dropdown-menu-wrapper {
           display: flex;
           align-items: center;
-          padding-bottom: map-get($sizes, padding-medium);
+          padding: map-get($sizes, padding-medium) 0
+            map-get($sizes, padding-medium) 0;
+          border-bottom: 0.1rem solid map-get($colors, color-hr);
+
+          &:first-child {
+            padding-top: 0;
+          }
+
+          &:last-of-type {
+            border-bottom: none;
+          }
 
           .dropdown-menu-image {
             height: 3.1rem;
@@ -120,12 +126,6 @@
 
       .navbar-ul {
         gap: map-get($sizes, padding-xxl-large);
-
-        .navbar-link {
-          &.shop {
-            display: block;
-          }
-        }
 
         .dropdown-menu {
           top: 7.6rem;
