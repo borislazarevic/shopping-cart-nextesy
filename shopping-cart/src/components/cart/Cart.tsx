@@ -1,3 +1,4 @@
+import { Fragment } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { Button } from "..";
@@ -27,7 +28,7 @@ export const Cart = () => {
     <div className="cart-container">
       <h1 className="cart-container-title">Your Cart</h1>
       {cart.cartItems.map((cartItem) => (
-        <>
+        <Fragment key={cartItem.id}>
           <div className="cart-items-wrapper">
             <img
               className="cart-items-img"
@@ -49,7 +50,7 @@ export const Cart = () => {
             </div>
           </div>
           <hr className="horizontal-line" />
-        </>
+        </Fragment>
       ))}
       <div className="cart-total-amount">
         <h3 className="cart-total-amount-title">Total</h3>

@@ -51,7 +51,7 @@ export const Navbar = () => {
 
         <ul className="navbar-ul">
           <li>
-            <NavLink className="navbar-link" to={RoutePath.shopHome}>
+            <NavLink className="navbar-link shop" to={RoutePath.shopHome}>
               Shop
             </NavLink>
           </li>
@@ -67,7 +67,7 @@ export const Navbar = () => {
                 className={`dropdown-menu ${isOpen ? "active" : "inactive"}`}
               >
                 {cart?.cartItems.map((cartItem) => (
-                  <div className="dropdown-menu-wrapper">
+                  <div className="dropdown-menu-wrapper" key={cartItem.id}>
                     <img
                       className="dropdown-menu-image"
                       src={cartItem.image}

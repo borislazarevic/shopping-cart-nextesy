@@ -10,13 +10,13 @@
       map-get($colors, color-primary),
       map-get($colors, color-secondary)
     );
-    padding: map-get($sizes, padding-x-large) map-get($sizes, padding-xxl-large);
+    padding: map-get($sizes, padding-medium) map-get($sizes, padding-large);
     color: map-get($colors, color-tertiary);
 
     .navbar-ul {
       display: flex;
       align-items: center;
-      gap: map-get($sizes, padding-xxl-large);
+      gap: 2rem;
 
       .navbar-link {
         font-size: map-get($sizes, font-size-large);
@@ -26,6 +26,10 @@
 
         &:hover {
           opacity: 0.6;
+        }
+
+        &.shop {
+          display: none;
         }
 
         &.cart {
@@ -56,8 +60,8 @@
 
       .dropdown-menu {
         position: absolute;
-        top: 7.6rem;
-        right: 5.6rem;
+        top: 6.1rem;
+        right: 0.8rem;
         background-color: map-get($colors, color-tertiary);
         border-radius: map-get($sizes, border-radius);
         padding: map-get($sizes, padding-large) map-get($sizes, padding);
@@ -104,6 +108,28 @@
             color: map-get($colors, color-text-primary);
             padding-left: 1.3rem;
           }
+        }
+      }
+    }
+  }
+
+  @include small-tablets {
+    .navbar {
+      padding: map-get($sizes, padding-x-large)
+        map-get($sizes, padding-xxl-large);
+
+      .navbar-ul {
+        gap: map-get($sizes, padding-xxl-large);
+
+        .navbar-link {
+          &.shop {
+            display: block;
+          }
+        }
+
+        .dropdown-menu {
+          top: 7.6rem;
+          right: 5.6rem;
         }
       }
     }
